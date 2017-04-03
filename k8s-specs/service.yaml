@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: load-demo-api
+  name: load-demo-ui
 spec:
   selector:
-    app: load-demo-api
+    app: load-demo-ui
     version: "1"
   ports:
     - protocol: TCP
