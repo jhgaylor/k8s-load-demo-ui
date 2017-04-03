@@ -10,9 +10,7 @@ Publish code to github on master and docker hub's automated build service will p
 
 # How to crank everything up?
 
-* Create the deployment `kubectl create -f k8s-specs/deployment.yaml`
-
-* Create the service `kubectl create -f k8s-specs/service.yaml`
+* Make sure that the k8s-load-demo-charts/ui chart is installed in your kubernetes cluster
 
 * start the proxy `kubectl proxy`
 
