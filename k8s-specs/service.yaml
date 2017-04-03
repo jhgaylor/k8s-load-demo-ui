@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: load-demo-api
+spec:
+  selector:
+    app: load-demo-api
+    version: "1"
+  ports:
+    - protocol: TCP
+      # maps incoming requests on 80 to 8080 on the backend
+      port: 80
+      targetPort: 8080

@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: load-demo-api-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: load-demo-api
+        version: "1"
+        role: api
+    spec:
+      containers:
+      - name: load-demo-api
+        image: jhgaylor/load-demo-api:latest
+        ports:
+        - containerPort: 8080
