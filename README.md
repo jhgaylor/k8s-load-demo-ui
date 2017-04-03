@@ -16,5 +16,5 @@ Publish code to github on master and docker hub's automated build service will p
 
 * start the proxy `kubectl proxy`
 
-* load the service through the proxy by browsing to http://localhost:8001/api/v1/proxy/namespaces/default/services/load-demo-api/
+* load the service through the proxy by browsing to http://localhost:8001/api/v1/proxy/namespaces/default/services/load-demo-ui/
 
