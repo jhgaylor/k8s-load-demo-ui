@@ -1,3 +1,9 @@
+# Running locally
+
+To run locally, you need to indicate to the go binary that we are external to a cluster.
+
+`go run main.go --external --kubeconfig /Users/jake/.kube/config`
+
 # How to ship a new release?
 
 Publish code to github on master and docker hub's automated build service will publish a docker image @ `jhgaylor/k8s-load-demo-api`. The deployment pulls it from docker's public repository.
