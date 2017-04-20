@@ -74,6 +74,7 @@ func makePodsWatchHandler(k8s *kubernetes.Clientset, logger *loggo.Logger) func(
     conn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
     if err != nil {
       logger.Errorf("Failed to set websocket upgrade: %+v", err)
+      c.String(http.StatusInternalServerError, err.Error())
       return
     }
     logger.Debugf("Successfully upgraded the connection to ws.")
