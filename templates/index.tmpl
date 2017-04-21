@@ -1,5 +1,22 @@
 <html>
-  <h1>
-    {{ .title }}
-  </h1>
+  <head>
+    <title>{{ .title }}</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- jQuery cause why not -->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <!-- React -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js" integrity="sha256-+a1U3leOoQWu+wLhpzuq+Gz08fegl1IZmEGs9xTbkjM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js" integrity="sha256-JjPaFvHLm1SN5IHz2P4J0+rGj8ajlzuslG03yZLEDoU=" crossorigin="anonymous"></script>
+  <!-- Babel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js" integrity="sha256-LpNmIs8AVGnxnpFQS5GVUeEuT8WziBdzZEZCNL9uvyM=" crossorigin="anonymous"></script>
+
+  <!-- Pull in my code. Babel will run on it. -->
+  <script src="/public/main.jsx" type="text/babel"></script>
+
 </html>
