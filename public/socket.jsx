@@ -26,7 +26,7 @@ const Websocket = {
     }
 
     sock.onopen = (event) => {
-      console.log(`Websocket successfully connected to '${ws_url}'.`, event)
+      console.log(`Websocket successfully connected to '${WS_URL}'.`, event)
     }
 
     sock.onmessage = (event) => {
