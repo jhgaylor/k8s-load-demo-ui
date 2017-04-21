@@ -15,14 +15,17 @@ class Pod extends React.Component {
   render() {
     const {pod} = this.props
     const pod_classes = `pod ${pod.metadata.labels.role}`
-    const request_total = pod.metrics && pod.metrics['http_requests_total{code="200",handler="PasswordHasher",method="get"}'] || 0
+    const request_total = pod.metrics && pod.metrics['http_requests_total{code="200",handler="PasswordHasher",method="get"}'] || null
     const uptime = moment().diff(pod.metadata.creationTimestamp, 'seconds')
-    const requests_per_second = request_total / uptime
+    var requests_per_second = '--'
+    if (request_total || request_total === 0) {
+      requests_per_second = (request_total / uptime).toFixed(1)
+    }
     // console.log("details", request_total, uptime, requests_per_second)
     return (
       <div className={pod_classes}>
         <p>{pod.metadata.labels.role}</p>
-        <p>R/s {requests_per_second.toFixed(1)}</p>
+        <p>R/s {requests_per_second}</p>
       </div>
     )
   }
