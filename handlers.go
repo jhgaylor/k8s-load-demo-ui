@@ -2,9 +2,9 @@ package main
 
 import (
   "encoding/json"
+  "github.com/gin-gonic/gin"
   "github.com/gorilla/websocket"
   "github.com/juju/loggo"
-  "gopkg.in/gin-gonic/gin.v1"
   metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
   "k8s.io/client-go/kubernetes"
   "net/http"

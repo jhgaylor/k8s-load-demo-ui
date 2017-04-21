@@ -3,8 +3,9 @@ package main
 import (
   "flag"
   "fmt"
+  "github.com/gin-contrib/cors"
+  "github.com/gin-gonic/gin"
   "github.com/juju/loggo"
-  "gopkg.in/gin-gonic/gin.v1"
   "os"
 )
 
@@ -33,5 +34,6 @@ func main() {
 
   demoRouter.BindHTTPHandlers()
   demoRouter.BindWSHandlers()
+  demoRouter.Use(cors.Default())
   demoRouter.Run(fmt.Sprintf(":%v", port))
 }
