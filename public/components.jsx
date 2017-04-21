@@ -17,7 +17,7 @@ class Pod extends React.Component {
     const pod_classes = `pod ${pod.metadata.labels.role}`
     const request_total = pod.metrics && pod.metrics['http_requests_total{code="200",handler="PasswordHasher",method="get"}'] || null
     const uptime = moment().diff(pod.metadata.creationTimestamp, 'seconds')
-    const restarts = pod.status.containerStatuses.reduce((acc, status) => {
+    const restarts = (pod.status.containerStatuses || []).reduce((acc, status) => {
       return status.restartCount + acc
     }, 0)
     var requests_per_second = '--'
