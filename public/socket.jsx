@@ -1,7 +1,7 @@
+const WS_URL = "ws://localhost:8080/ws/pods/load-demo"
 const Websocket = {
   setup: (store) => {
-    const ws_url = "ws://localhost:8080/ws/pods/load-demo"
-    const sock = new WebSocket(ws_url);
+    const sock = new WebSocket(WS_URL);
 
     const metricsIntervals = {}
 

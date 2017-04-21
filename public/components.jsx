@@ -90,7 +90,6 @@ class PodsContainer extends React.Component {
     const keys = Object.keys(podsGroupedByNode)
     const nodes = keys.map((nodeName) => (podsGroupedByNode[nodeName]))
     return nodes.map((pods, index) => {
-      console.log("SDFDSF", keys[index])
       return (
         <div className="node" key={keys[index]} >
           <div className="pods-container">
