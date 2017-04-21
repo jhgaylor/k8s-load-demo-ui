@@ -31,8 +31,8 @@ func (r *DemoRouter) BindHTTPHandlers() {
 
 func (r *DemoRouter) BindWSHandlers() {
 
-  // podsLogger := loggo.GetLogger("ws.pods")
-  // router.GET("/ws/pods/:namespace", makePodsWatchHandler(k8sClient, podsLogger))
+  podsLogger := loggo.GetLogger("ws.pods")
+  r.GET("/ws/pods/:namespace", makePodsWatchHandler(r.k8s, &podsLogger))
 }
 
 func makeHealthHandler(logger *loggo.Logger) func(*gin.Context) {
