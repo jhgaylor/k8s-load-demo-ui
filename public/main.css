@@ -28,3 +28,9 @@
 .pod.api {
   border: 3px solid green;
 }
+.pod.pending {
+  background-color: gray;
+}
+.pod.unschedulable {
+  background-color: red;
+}

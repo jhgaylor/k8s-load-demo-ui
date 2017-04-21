@@ -14,7 +14,17 @@ class Pod extends React.Component {
 
   render() {
     const {pod} = this.props
-    const pod_classes = `pod ${pod.metadata.labels.role}`
+    var pod_classes = `pod ${pod.metadata.labels.role}`
+    const status = pod.status
+    if (status.phase === 'Pending') {
+      pod_classes += " pending"
+      const conditions = status.conditions || []
+      conditions.forEach((condition) => {
+        if (condition.reason === 'Unschedulable') {
+          pod_classes += " unschedulable"
+        }
+      })
+    }
     const request_total = pod.metrics && pod.metrics['http_requests_total{code="200",handler="PasswordHasher",method="get"}'] || null
     const uptime = moment().diff(pod.metadata.creationTimestamp, 'seconds')
     const restarts = (pod.status.containerStatuses || []).reduce((acc, status) => {
@@ -77,10 +87,12 @@ class PodsContainer extends React.Component {
 
   renderPodsGroupedByNodes() {
     const podsGroupedByNode = this.getPodsGroupedByNode()
-    const nodes = Object.keys(podsGroupedByNode).map((nodeName) => (podsGroupedByNode[nodeName]))
+    const keys = Object.keys(podsGroupedByNode)
+    const nodes = keys.map((nodeName) => (podsGroupedByNode[nodeName]))
     return nodes.map((pods, index) => {
+      console.log("SDFDSF", keys[index])
       return (
-        <div className="node" key={index} >
+        <div className="node" key={keys[index]} >
           <div className="pods-container">
             { pods.map(this.renderPod.bind(this))}
           </div>
