@@ -16,15 +16,15 @@
   display: inline-block;
   width: 100px;
   height: 100px;
-  background-color: gray;
+  /*background-color: gray;*/
   margin: 10px;
   text-align: center;
   font-size: 80%;
 }
 
 .pod.ui {
-  background-color: red;
+  border: 3px solid red;
 }
 .pod.api {
-  background-color: green;
+  border: 3px solid green;
 }
