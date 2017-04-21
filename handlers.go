@@ -24,6 +24,13 @@ func (r *DemoRouter) BindHTTPHandlers() {
   healthLogger := loggo.GetLogger("http.health")
   readinessLogger := loggo.GetLogger("http.readiness")
   podsLogger := loggo.GetLogger("http.pods")
+  r.LoadHTMLGlob("templates/*")
+  r.Static("/public", "./public")
+  r.GET("/", func(c *gin.Context) {
+    c.HTML(http.StatusOK, "index.tmpl", gin.H{
+      "title": "Main website",
+    })
+  })
   r.GET("/healthz", makeHealthHandler(&healthLogger))
   r.GET("/readiness", makeReadinessHandler(&readinessLogger))
   r.GET("/pods/:namespace", makePodsHandler(r.k8s, &podsLogger))
