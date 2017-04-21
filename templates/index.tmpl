@@ -15,8 +15,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js" integrity="sha256-JjPaFvHLm1SN5IHz2P4J0+rGj8ajlzuslG03yZLEDoU=" crossorigin="anonymous"></script>
   <!-- Babel -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js" integrity="sha256-LpNmIs8AVGnxnpFQS5GVUeEuT8WziBdzZEZCNL9uvyM=" crossorigin="anonymous"></script>
+  <!-- Redux -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js" integrity="sha256-PvjZ2KKhSZgoR9KnSPSKP0aPedyVWJyxdf2jE+nesgY=" crossorigin="anonymous"></script>
 
-  <!-- Pull in my code. Babel will run on it. -->
+  <!-- Pull in my code. Babel will run on it. main.jsx should be last as it depends on everything else. Note: to make this so that load order doesn't matter for everything else, main is the only thing that uses code not included in itself. -->
+  <script src="/public/socket.jsx" type="text/babel"></script>
+  <script src="/public/reducers.jsx" type="text/babel"></script>
+  <script src="/public/components.jsx" type="text/babel"></script>
   <script src="/public/main.jsx" type="text/babel"></script>
 
 </html>
